@@ -1,0 +1,44 @@
+{
+  "name": "@xk6-dashboard-assets/view",
+  "description": "View utilities for xk6-dashboard-assets",
+  "license": "AGPL-3.0",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsup --no-splitting --entry.index src/index.ts --entry.config src/Config.ts --dts-resolve --format esm",
+    "dev": "tsup --no-splitting --entry.index src/index.ts --entry.config src/Config.ts --watch --dts-resolve --format esm",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "clean": "rm -rf dist"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./config": "./dist/config.js"
+  },
+  "dependencies": {
+    "@types/numeral": "^2.0.2",
+    "@xk6-dashboard-assets/model": "1.0.0",
+    "numeral": "^2.0.6",
+    "pretty-bytes": "^7.0.0",
+    "pretty-ms": "^9.0.0",
+    "uplot": "^1.6.32"
+  },
+  "devDependencies": {
+    "@eslint/compat": "1.2.4",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.39.1",
+    "@typescript-eslint/eslint-plugin": "8.46.4",
+    "@typescript-eslint/parser": "8.46.4",
+    "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "prettier": "3.6.2",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3"
+  }
+}

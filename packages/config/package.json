@@ -1,0 +1,37 @@
+{
+  "name": "@xk6-dashboard-assets/config",
+  "description": "Configuration for xk6-dashboard-assets",
+  "license": "AGPL-3.0",
+  "private": true,
+  "version": "1.0.0",
+  "types": "./src/config.d.ts",
+  "files": [
+    "dist/config.json"
+  ],
+  "exports": {
+    ".": "./dist/config.json"
+  },
+  "scripts": {
+    "build": "node main.js dist/config.json",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "clean": "rm -rf dist"
+  },
+  "type": "module",
+  "dependencies": {
+    "@xk6-dashboard-assets/view": "1.0.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "1.2.4",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.39.1",
+    "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-n": "17.23.1",
+    "eslint-plugin-prettier": "5.5.4",
+    "eslint-plugin-promise": "7.2.1",
+    "prettier": "3.6.2"
+  }
+}

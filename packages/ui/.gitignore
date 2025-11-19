@@ -1,0 +1,2 @@
+# Common ignores are in root .gitignore
+# dist is embedded, so not ignored

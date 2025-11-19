@@ -1,0 +1,22 @@
+import { globalStyle, style } from "@vanilla-extract/css"
+
+import { vars } from "theme"
+import { sizes } from "theme/sizes.css"
+
+export const main = style({
+  padding: vars.sizes.size5,
+  "@media": {
+    [`(min-width: ${sizes.lg})`]: {
+      padding: vars.sizes.size11
+    }
+  }
+})
+
+export const usage = style({
+  color: vars.colors.text.secondary,
+  fontStyle: "italic"
+})
+
+globalStyle(".u-legend", {
+  height: "55px"
+})

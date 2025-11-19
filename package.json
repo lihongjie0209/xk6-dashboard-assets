@@ -1,0 +1,30 @@
+{
+  "name": "xk6-dashboard-assets",
+  "version": "1.0.0",
+  "description": "xk6-dashboard embeddable assets",
+  "license": "AGPL-3.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grafana/xk6-dashboard-assets.git"
+  },
+  "author": "Grafana Labs",
+  "homepage": "https://github.com/grafana/xk6-dashboard#readme",
+  "bugs": {
+    "url": "https://github.com/grafana/xk6-dashboard/issues"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "dev": "lerna run dev --parallel",
+    "lint": "lerna run lint",
+    "format": "lerna run format",
+    "clean": "lerna run clean",
+    "test": "go test ."
+  },
+  "devDependencies": {
+    "lerna": "9.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
