@@ -9,5 +9,9 @@
   "openOptions": "Open options menu",
   "openReport": "Open report",
   "openHelp": "Open help documentation",
-  "toggleTheme": "Toggle theme"
+  "toggleTheme": "Toggle theme",
+  "pageTitle": "k6 Dashboard",
+  "tabOverview": "Overview",
+  "tabTimings": "Timings",
+  "tabSummary": "Summary"
 }

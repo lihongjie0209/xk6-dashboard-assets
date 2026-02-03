@@ -45,6 +45,8 @@ export function LanguageSelector() {
           aria-label={t('selectLanguage')}
           name="globe"
           variant="text"
+          iconWidth="20px"
+          iconHeight="20px"
           onClick={() => setIsOpen(!isOpen)}
         />
       </Tooltip>

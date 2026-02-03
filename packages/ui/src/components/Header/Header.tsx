@@ -29,6 +29,12 @@ interface HeaderProps {
 export function Header({ config, tab, onTabChange }: HeaderProps) {
   const digest = useDigest()
   const isTablet = useMediaQuery(`(max-width: ${vars.breakpoints.header})`)
+  const { t } = useTranslation('header')
+
+  // Update page title
+  React.useEffect(() => {
+    document.title = t('pageTitle')
+  }, [t])
 
   const percentage = !digest.stop && getTestPercentage(digest, new Date())
 

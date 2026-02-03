@@ -9,15 +9,17 @@ import * as styles from "./IconButton.css"
 interface IconButtonProps extends Omit<ButtonProps, "children"> {
   name: keyof typeof IconMap
   title?: string
+  iconWidth?: string
+  iconHeight?: string
 }
 
 function IconButtonBase(
-  { className, name, title, variant = "fill", ...props }: IconButtonProps,
+  { className, name, title, iconWidth, iconHeight, variant = "fill", ...props }: IconButtonProps,
   ref: Ref<HTMLButtonElement & HTMLAnchorElement>
 ) {
   return (
     <Button ref={ref} className={toClassName(styles.button, className)} variant={variant} {...props}>
-      <Icon className={styles.icon[variant]} name={name} title={title} />
+      <Icon className={styles.icon[variant]} name={name} title={title} width={iconWidth} height={iconHeight} />
     </Button>
   )
 }

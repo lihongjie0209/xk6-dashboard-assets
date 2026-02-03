@@ -32,6 +32,8 @@ export function MenuBase({ children }: MenuProps) {
         aria-label="Menu"
         name="options"
         variant="text"
+        iconWidth="20px"
+        iconHeight="20px"
         onClick={() => setIsOpen(!isOpen)}
       />
 

@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 
 import { Button } from "components/Button"
 import { Flex } from "components/Flex"
@@ -37,12 +38,19 @@ interface ItemProps {
 }
 
 function Item({ index, label, value, onChange, ...props }: ItemProps) {
+  const { t } = useTranslation('header')
   const isActive = index === value
   const state = isActive ? "active" : "inactive"
+  
+  // Translate common tab names
+  const translatedLabel = label === 'Overview' ? t('tabOverview') 
+    : label === 'Timings' ? t('tabTimings')
+    : label === 'Summary' ? t('tabSummary')
+    : label
 
   return (
     <Button aria-current={isActive} className={styles.item[state]} variant="text" onClick={() => onChange(index)} {...props}>
-      {label}
+      {translatedLabel}
     </Button>
   )
 }
