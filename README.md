@@ -37,6 +37,19 @@ xk6-dashboard-assets/
 | `@xk6-dashboard-assets/report` | Single-page application for generating static HTML reports from test results. Built with Preact. |
 | `@xk6-dashboard-assets/ui` | Real-time dashboard web interface for monitoring test execution. Built with React. |
 
+## Internationalization
+
+The dashboard supports multiple languages:
+
+- **English** (default)
+- **简体中文** (Simplified Chinese)
+
+Language can be switched via the globe icon in the header. The preference is saved to localStorage and persists across sessions.
+
+For detailed information on adding translations or supporting additional languages, see:
+- [UI Package i18n Guide](packages/ui/I18N_GUIDE.md)
+- [Report Package i18n Guide](packages/report/I18N_GUIDE.md)
+
 ## Public API
 
 This repository is a Go module that provides embedded static assets for xk6-dashboard. The assets are designed to be embedded into the main xk6-dashboard Go extension using Go's `embed` package.

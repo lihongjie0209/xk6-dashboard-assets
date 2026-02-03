@@ -3,6 +3,7 @@ import React, { forwardRef, type ComponentProps, type FunctionComponent, type Re
 import { ReactComponent as DarkModeIcon } from "assets/icons/dark_mode.svg"
 import { ReactComponent as ExpandLessIcon } from "assets/icons/expand_less.svg"
 import { ReactComponent as ExpandMoreIcon } from "assets/icons/expand_more.svg"
+import { ReactComponent as GlobeIcon } from "assets/icons/globe.svg"
 import { ReactComponent as HourGlassIcon } from "assets/icons/hour_glass.svg"
 import { ReactComponent as InfoIcon } from "assets/icons/info.svg"
 import { ReactComponent as LightModeIcon } from "assets/icons/light_mode.svg"
@@ -37,6 +38,7 @@ type SVGComponent = FunctionComponent<IconCommonProps>
 export const IconMap = {
   "chevron-down": ExpandMoreIcon as SVGComponent,
   "chevron-up": ExpandLessIcon as SVGComponent,
+  globe: GlobeIcon as SVGComponent,
   "hour-glass": HourGlassIcon as SVGComponent,
   info: InfoIcon as SVGComponent,
   options: OptionsIcon as SVGComponent,

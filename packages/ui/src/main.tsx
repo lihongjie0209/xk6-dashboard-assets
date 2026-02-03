@@ -5,6 +5,7 @@ import { DigestProvider } from "store/digest"
 import { ThemeProvider } from "store/theme"
 import { TimeRangeProvider } from "store/timeRange"
 
+import "./i18n"
 import App from "App"
 
 const base = new URLSearchParams(window.location.search).get("endpoint") || "http://localhost:5665/"

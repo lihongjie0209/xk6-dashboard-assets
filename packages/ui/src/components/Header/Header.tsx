@@ -1,5 +1,6 @@
 import React from "react"
 import { useMediaQuery } from "usehooks-ts"
+import { useTranslation } from "react-i18next"
 
 import type { UIConfig } from "types/config"
 import { useDigest } from "store/digest"
@@ -8,6 +9,7 @@ import { Button } from "components/Button"
 import { Divider } from "components/Divider"
 import { Flex } from "components/Flex"
 import { Icon } from "components/Icon"
+import { LanguageSelector } from "components/LanguageSelector"
 import { Menu } from "components/Menu"
 import { Nav } from "components/Nav"
 import { Progress } from "components/Progress"
@@ -41,6 +43,7 @@ export function Header({ config, tab, onTabChange }: HeaderProps) {
           <Flex align="center">
             {!isTablet && <Actions tab={tab} />}
 
+            <LanguageSelector />
             <Options />
           </Flex>
         </Flex>
@@ -59,17 +62,18 @@ export function Header({ config, tab, onTabChange }: HeaderProps) {
 
 const Stats = () => {
   const digest = useDigest()
+  const { t } = useTranslation('header')
 
   return (
     <div className={styles.stats}>
       <Flex align="center" gap={3}>
-        <Tooltip placement="bottom" title="Refresh rate">
+        <Tooltip placement="bottom" title={t('refreshRate')}>
           <Flex align="center" gap={2}>
             <Icon name="stop-watch" width="12px" height="12px" />
             <span>{getRefreshRate(digest)}</span>
           </Flex>
         </Tooltip>
-        <Tooltip placement="bottom" title="Duration">
+        <Tooltip placement="bottom" title={t('duration')}>
           <Flex align="center" gap={2}>
             <Icon name="hour-glass" width="12px" height="12px" />
             <span>{getDuration(digest)}</span>
@@ -86,11 +90,12 @@ interface ActionsProps {
 
 const Actions = ({ tab }: ActionsProps) => {
   const isSummary = tab === 2
+  const { t } = useTranslation('header')
 
   return (
     <>
       {!isSummary && <TimeRangeResetButton />}
-      <Button onClick={() => window.open("../report", "k6-report")}>Report</Button>
+      <Button onClick={() => window.open("../report", "k6-report")}>{t('report')}</Button>
       <Stats />
     </>
   )
@@ -98,6 +103,7 @@ const Actions = ({ tab }: ActionsProps) => {
 
 const Options = () => {
   const { theme, setTheme } = useTheme()
+  const { t } = useTranslation('header')
 
   function handleHelpClick() {
     window.open("https://github.com/grafana/k6/blob/master/SUPPORT.md", "_blank")
@@ -111,11 +117,11 @@ const Options = () => {
     <Menu>
       <Menu.Item onClick={handleHelpClick}>
         <Icon name="question" />
-        <span>Help</span>
+        <span>{t('help')}</span>
       </Menu.Item>
       <Menu.Item onClick={handleThemeChange}>
         <Icon name={theme === "dark" ? "sun" : "moon"} />
-        <span>{theme === "dark" ? "Light" : "Dark"} mode</span>
+        <span>{theme === "dark" ? t('lightMode') : t('darkMode')}</span>
       </Menu.Item>
     </Menu>
   )

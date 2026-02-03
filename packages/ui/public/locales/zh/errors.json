@@ -1,0 +1,6 @@
+{
+  "networkError": "网络错误",
+  "unknownError": "发生未知错误",
+  "loadingFailed": "加载数据失败",
+  "invalidData": "接收到无效数据"
+}

@@ -8,6 +8,7 @@ import { Digest } from "@xk6-dashboard-assets/model"
 import { Panel, SeriesPlot } from "@xk6-dashboard-assets/view"
 
 import { colors } from "utils"
+import i18n from "../../i18n"
 
 import { createOptions } from "./Chart.utils"
 import { useElementWidth } from "./Chart.hooks"
@@ -30,7 +31,7 @@ export default function Chart({ panel, digest }: ChartProps) {
     <div ref={ref} className={styles.chart}>
       <h4 className={styles.title}>{panel.title}</h4>
       <div className={styles.chartWrapper}>
-        {!hasData && <p className={styles.noData}>no data</p>}
+        {!hasData && <p className={styles.noData}>{i18n.t('noData')}</p>}
         <UplotReact options={options} data={plotData} />
       </div>
     </div>

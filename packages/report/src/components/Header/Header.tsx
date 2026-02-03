@@ -1,8 +1,10 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Digest } from "@xk6-dashboard-assets/model"
 
 import "theme/global.css"
 import { Flex } from "components/Flex"
+import { LanguageSelector } from "components/LanguageSelector"
 import { ReactComponent as LogoIcon } from "assets/icons/logo.svg"
 
 import { toDate } from "./Header.utils"
@@ -13,12 +15,15 @@ interface HeaderProps {
 }
 
 export function Header({ digest }: HeaderProps) {
+  const { t } = useTranslation('header')
+
   return (
     <Flex as="header" align="center">
       <LogoIcon />
       <Flex className={styles.heading} as="h1" grow={1} justify="center">
-        Report: <span className={styles.date}>{toDate(digest.start)}</span>
+        {t('report')}: <span className={styles.date}>{toDate(digest.start)}</span>
       </Flex>
+      <LanguageSelector />
     </Flex>
   )
 }

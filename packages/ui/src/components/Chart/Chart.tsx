@@ -1,5 +1,6 @@
 import React, { Fragment, useRef } from "react"
 import { useResizeObserver } from "usehooks-ts"
+import { useTranslation } from "react-i18next"
 import "uplot/dist/uPlot.min.css"
 import uPlot, { type AlignedData } from "uplot"
 import UplotReact from "uplot-react"
@@ -26,6 +27,7 @@ interface ChartProps {
 export default function Chart({ panel, container }: ChartProps) {
   const digest = useDigest()
   const { theme } = useTheme()
+  const { t } = useTranslation('common')
   const ref = useRef<HTMLDivElement>(null)
   const { width } = useResizeObserver({ ref })
 
@@ -56,7 +58,7 @@ export default function Chart({ panel, container }: ChartProps) {
             </Tooltip>
           </Flex>
           <div className={styles.chartWrapper}>
-            {!hasData && <p className={styles.noData}>no data</p>}
+            {!hasData && <p className={styles.noData}>{t('noData')}</p>}
             <UplotReact options={options} data={plotData} onCreate={onCreate} />
           </div>
         </div>

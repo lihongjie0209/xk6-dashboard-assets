@@ -1,4 +1,5 @@
 import React, { useState, ReactNode } from "react"
+import { useTranslation } from "react-i18next"
 
 import "theme/global.css"
 import { useDigest } from "store/digest"
@@ -15,6 +16,7 @@ export default function App() {
   const digest = useDigest()
   const { themeClassName } = useTheme()
   const [tab, setTab] = useState(0)
+  const { t } = useTranslation('common')
 
   const hasData = !!digest.samples.length
 
@@ -22,7 +24,7 @@ export default function App() {
     <Flex className={`${themeClassName} ${styles.container}`} direction="column" gap={0}>
       <Header config={digest.config} tab={tab} onTabChange={setTab} />
       <Flex as="main" className={styles.main} direction="column" grow={!hasData ? 1 : 0}>
-        <LoadingContainer isLoading={!hasData} message="Loading...">
+        <LoadingContainer isLoading={!hasData}>
           {digest.config.tabs.map((data, idx) => (
             <TabPanel key={data.id} active={tab} idx={idx}>
               {data.sections.map((section) => (

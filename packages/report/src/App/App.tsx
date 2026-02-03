@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Digest } from "@xk6-dashboard-assets/model"
 
 import "theme/global.css"
@@ -15,6 +16,8 @@ interface AppProps {
 }
 
 export default function App({ digest }: AppProps) {
+  const { t } = useTranslation('common')
+
   return (
     <Flex as="main" className={toClassName(theme, styles.main)} direction="column" gap={4}>
       <Header digest={digest} />
@@ -26,7 +29,7 @@ export default function App({ digest }: AppProps) {
       <section>
         <hr />
         <p className={styles.usage}>
-          Select a time interval by holding down the mouse on any graph to zoom. To cancel zoom, double click on any graph.
+          {t('usageInstructions')}
         </p>
       </section>
     </Flex>
